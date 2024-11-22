@@ -149,4 +149,7 @@
         display: block;
         width: fit-content;
     }
+    label:hover {
+        color: orangered
+    }
 </style>

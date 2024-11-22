@@ -22,7 +22,9 @@
     }
   
     // Reactive statement to refetch data when either selectedOrders or selectedFamilies change
-    $: selectedOrders, selectedFamilies, fetchData();
+    $: if (selectedOrders.length || selectedFamilies.length) {
+    fetchData();
+  }
   
     // Function to fetch data
     async function fetchData() {
@@ -160,7 +162,8 @@
   overflow: hidden; /* Prevents elements from going out of bounds when zooming */
 }   
 #tree-container {
-    border-top: 1px solid black;
+    border-top: 1px solid rgb(235, 235, 235);
+    margin-top: 64px;
 }
     .visInfo {
       margin: 64px;
