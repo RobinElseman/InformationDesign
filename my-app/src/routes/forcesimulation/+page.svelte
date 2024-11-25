@@ -12,12 +12,12 @@
   />
 </svelte:head>
 
-<header>
-  <Header />
-</header>
-<main>
-  <ForceSimulation />
-</main>
+  <header>
+    <Header />
+  </header>
+  <main>
+    <ForceSimulation />
+  </main>
 
 <style>
   * {
@@ -25,5 +25,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  }
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 99999;
   }
 </style>

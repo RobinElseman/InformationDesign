@@ -130,6 +130,7 @@
     }
     .categoryWrapper {
         display: flex;
+        flex-direction: column;
         gap: 64px;
         margin-left: 64px;
     }

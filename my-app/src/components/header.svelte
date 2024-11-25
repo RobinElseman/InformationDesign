@@ -29,6 +29,7 @@
     align-items: center;
     border-bottom: 1px solid rgb(235, 235, 235);
     padding: 12px 32px;
+    background-color: white;
   }
   div div {
     display: flex;
