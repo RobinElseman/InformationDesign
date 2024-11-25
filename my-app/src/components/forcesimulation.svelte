@@ -8,7 +8,7 @@
   let data = [];
   let isLoading = true;
   const width = 800;
-  const height = 500;
+  const height = 750;
 
   let selectedOrders = [];
   let selectedFamilies = [];
@@ -127,7 +127,7 @@
 <main>
   <div class="sidebar">
       <div class="visInfo">
-          <span class="breadcrumbs"><a href="/">Home</a> / <a href="">Force Simulation</a></span>
+          <span class="breadcrumbs"><a href="/">Home</a> / <a href="/forcesimulation">Force Simulation</a></span>
           <h1>Taxonomy Analysis</h1>
           <p>Hover above nodes to see the names, you can also drag them around.</p>
       </div>
@@ -140,14 +140,21 @@
 </main>
 
 <style>
+  main {
+    display: flex;
+    justify-content: space-between;
+  }
   .sidebar {
       width: max-content;
   }
   #tree-container {
-      background-color: aqua;
+      border-left: 1px solid rgb(235, 235, 235);
       position: sticky;
       right: 0;
-      top: 0;
+      top: 63px;
+      display: block;
+      height: 750px;
+      box-shadow: inset 10px 10px 50px rgb(235, 235, 235);
   }
   .visInfo {
       margin: 64px;
