@@ -16,10 +16,6 @@
 
   windowHeight = WindowHeight();
 
-  window.addEventListener('resize', () => {
-      windowHeight = WindowHeight();
-  });
-
   const height = windowHeight;
 
   function handleUpdateOrders(event) {
@@ -161,7 +157,7 @@
 <main>
   <div class="sidebar">
       <div class="visInfo">
-          <span class="breadcrumbs"><a href="/">Home</a> / <a href="/forcesimulation">Force Simulation</a></span>
+          <span class="breadcrumbs"><a href="/">Home</a> / <a href="/forcesimulation">Taxonomy Analysis</a></span>
           <h1>Taxonomy Analysis</h1>
           <p>Hover above nodes to see the names, you can also drag them around.</p>
       </div>

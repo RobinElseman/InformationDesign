@@ -1,5 +1,5 @@
 export async function fetchArrabiata(selectedOrders, selectedFamilies) {
-    const url = `https://api.biodiversitydata.nl/v2/taxon/query?defaultClassification.kingdom=Viruses&_size=3186`;
+    const url = `https://api.biodiversitydata.nl/v2/taxon/query?defaultClassification.kingdom=Viruses&_size=10000`;
 
     try {
         const response = await fetch(url, {

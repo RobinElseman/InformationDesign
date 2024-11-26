@@ -1,13 +1,25 @@
 <script>
     import * as d3 from "d3";
     import { onMount } from 'svelte';
-    import { fetchArrabiata } from "../lib/index";
+    import { fetchArrabiata } from "../lib/new";
     import Loading from "../components/loading.svelte";
 
     let data = [];
     let isLoading = true; // Loading state
     const width = 1000;
     const height = 60000;
+
+    const handleClick = (event, id) => {
+        // Prevent default anchor behavior
+        event.preventDefault();
+
+        // Scroll to the element
+        const targetElement = document.getElementById(id);
+        targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+        });
+    };
 
     onMount(() => {
         fetchArrabiata()
@@ -81,9 +93,11 @@
 </script>
 
 <main>
-    <h1>Cluster Tree</h1>
-    <p>Look around and discover all families and viruses.</p>
-    <a href="/">back home</a>
+    <div class="visInfo">
+        <span class="breadcrumbs"><a href="/">Home</a> / <a href="/clustertree">Clustertree</a></span>
+        <h1>Clustertree</h1>
+        <p>This is a clustertree, navigate by scrolling or with the buttons.</p>
+    </div>
 
     <!-- Loading state message -->
     {#if isLoading}
@@ -92,9 +106,67 @@
 
     <!-- Tree container -->
     <div id="tree-container" class="{isLoading ? 'hidden' : ''}"></div>
+    <div class="underbar">
+        <a id="topscroll" href="#top">To top</a>
+        <div class="buttons">
+            {#each data.children as classification}
+                {#each classification.children as classes}
+                    <a href="#{classes.name}" on:click={(event) => handleClick(event, classes.name)}>{classes.name}</a>
+                {/each}
+            {/each}
+        </div>
+    </div>
 </main>
 
 <style>
+    .underbar {
+        display: flex;
+        justify-content: flex-start;
+        gap: 8px;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .underbar > a {
+        text-decoration: none;
+        color: orangered;
+        border: 1px solid orangered;
+        padding: 4px 10px;
+        border-radius: 2px;
+        display: block;
+        width: fit-content;
+        transition: ease-in-out 0.1s;     
+    }
+
+    .underbar > a:hover {
+        color: white;
+        border: 1px solid orangered;
+        background-color: orangered;
+    }
+
+
+    .buttons {
+        display: flex;
+        gap: 8px;
+    }
+
+    .buttons a {
+        text-decoration: none;
+        color: black;
+        background-color: rgb(235, 235, 235);
+        padding: 6px 12px;
+        border-radius: 2px;
+        display: block;
+        width: fit-content;
+        transition: ease-in-out 0.1s;
+    }
+    .buttons a:hover {
+        background-color: rgb(215, 215, 215);
+    }
+
     .link {
         stroke: #ccc;
         stroke-width: 2;
@@ -115,4 +187,23 @@
     .hidden {
         display: none;
     }
+
+    .visInfo {
+      margin: 64px;
+  }
+  .breadcrumbs {
+      font-weight: 200;
+      opacity: 0.25;
+      transition: ease-in-out 0.1s;
+  }
+  .breadcrumbs:hover {
+      opacity: 1;
+  }
+  .breadcrumbs a {
+      text-decoration: none;
+      color: black;
+  }
+  .breadcrumbs a:hover {
+      text-decoration: underline orangered;
+  }
 </style>
