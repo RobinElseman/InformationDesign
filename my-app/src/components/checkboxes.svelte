@@ -133,6 +133,7 @@
         flex-direction: column;
         gap: 64px;
         margin-left: 64px;
+        margin-bottom: 64px;
     }
     span {
         opacity: .1;
@@ -146,11 +147,16 @@
         accent-color: orangered;
         display: block;
     }
+    input[type="checkbox"]:checked + label {
+        color: orangered;
+        font-weight: 600;
+    }
     label {
         display: block;
         width: fit-content;
+        transition: ease-in-out .1s;
     }
     label:hover {
-        color: orangered
+        font-weight: 600;
     }
 </style>

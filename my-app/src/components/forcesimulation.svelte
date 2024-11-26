@@ -2,16 +2,25 @@
   import * as d3 from "d3";
   import { onMount } from "svelte";
   import { fetchArrabiata } from "../lib/index";
-  import Loading from "../components/loading.svelte";
   import Checkboxes from "../components/checkboxes.svelte";
+  import WindowHeight from "../lib/windowheight"
 
   let data = [];
   let isLoading = true;
   const width = 800;
-  const height = 750;
 
   let selectedOrders = [];
   let selectedFamilies = [];
+
+  let windowHeight;
+
+  windowHeight = WindowHeight();
+
+  window.addEventListener('resize', () => {
+      windowHeight = WindowHeight();
+  });
+
+  const height = windowHeight;
 
   function handleUpdateOrders(event) {
       selectedOrders = event.detail;
@@ -41,6 +50,20 @@
   function updateTree() {
       const svg = d3.select("#tree-svg");
       svg.selectAll("*").remove(); // Clear previous content
+
+          // Tooltip setup
+    const tooltip = d3
+        .select("body")
+        .append("div")
+        .attr("class", "tooltip")
+        .style("position", "absolute")
+        .style("visibility", "hidden")
+        .style("background-color", "rgba(255, 69, 0, .8)")
+        .style("color", "#fff")
+        .style("padding", "8px")
+        .style("border-radius", "2px")
+        .style("font-size", "12px")
+        .style("pointer-events", "none");
 
       const root = d3.hierarchy(data);
       const nodes = root.descendants();
@@ -72,9 +95,20 @@
           .join("circle")
           .attr("r", 5)
           .attr("fill", "orangered")
+          .on("mouseover", (event, d) => {
+            tooltip
+                .style("visibility", "visible")
+                .html(`<strong>${d.data.name}</strong>`);
+        })
+        .on("mousemove", (event) => {
+            tooltip
+                .style("top", `${event.pageY + 10}px`)
+                .style("left", `${event.pageX + 10}px`);
+        })
+        .on("mouseout", () => {
+            tooltip.style("visibility", "hidden");
+        })
           .call(drag(simulation));
-
-      node.append("title").text((d) => d.data.name);
 
       simulation.on("tick", () => {
           link
@@ -151,9 +185,9 @@
       border-left: 1px solid rgb(235, 235, 235);
       position: sticky;
       right: 0;
-      top: 63px;
+      top: 63.5px;
       display: block;
-      height: 750px;
+      height: 100vh;
       box-shadow: inset 10px 10px 50px rgb(235, 235, 235);
   }
   .visInfo {
@@ -174,4 +208,6 @@
   .breadcrumbs a:hover {
       text-decoration: underline orangered;
   }
+
+
 </style>

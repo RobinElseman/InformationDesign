@@ -37,8 +37,8 @@
       <p>
         Ready to explore the fascinating world of virus taxonomy? Dive into our interactive visualizations:
       </p>
-      <a href="/clustertree">clustertree</a>
-      <a href="/forcesimulation">forcesimulation</a>
+      <a href="/clustertree">Clustertree</a>
+      <a href="/forcesimulation">Taxonomy Analysis</a>
     </div>
   </main> 
 
