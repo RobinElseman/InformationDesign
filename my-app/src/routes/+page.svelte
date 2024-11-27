@@ -22,7 +22,7 @@
   <div class="visInfo">
     <h1>Welcome to VirusViz!</h1>
     <p>
-      Discover customizable and easy-to-understand visualizations of virus classifications. This web app is designed to help you explore how organisms, including viruses, are systematically categorized within the tree of life.
+      Discover customizable and easy-to-understand visualizations of virus classifications. This web app is designed to help you explore how viruses are systematically categorized within the tree of life.
     </p>
     <br>
     <p>
