@@ -1,8 +1,9 @@
 <script>
-      import Loading from "../components/loading.svelte";
-      import Header from "../components/header.svelte";
+  // Import all needed components
+  import Header from "../components/header.svelte";
 </script>
 
+<!-- Setup page header -->
 <svelte:head>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,36 +15,38 @@
 <header>
   <Header />
 </header>
-  <main>
-    <div class="virusBanner"><div class="overlayBanner"></div></div>
-    <div class="visInfo">
-      <h1>Welcome to VirusViz!</h1>
-      <p>
-        Discover customizable and easy-to-understand visualizations of virus classifications. This web app is designed to help you explore how organisms, including viruses, are systematically categorized within the tree of life.
-      </p>
-      <br>
-      <p>
-        <strong>How are viruses classified?</strong> <br>
-        Similar to other kingdoms of life, viruses are organized using a hierarchical classification system. Here’s the structure:
-      </p>
-      <ol>
-        <li><strong>Kingdom</strong></li>
-        <li><strong>Phylum</strong></li>
-        <li><strong>Class</strong></li>
-        <li><strong>Order</strong></li>
-        <li><strong>Family</strong></li>
-        <li><strong>Genus</strong></li>
-        <li><strong>Species</strong></li>
-      </ol>
-      <p>
-        Ready to explore the fascinating world of virus taxonomy? Dive into our interactive visualizations:
-      </p>
-      <div class="buttondiv">
-        <a class="buttons" href="/clustertree">Clustertree</a>
-        <a class="buttons" href="/forcesimulation">Taxonomy Analysis</a>
-      </div>
+<main>
+  <div class="virusBanner">
+    <div class="overlayBanner"></div>
+  </div>
+  <div class="visInfo">
+    <h1>Welcome to VirusViz!</h1>
+    <p>
+      Discover customizable and easy-to-understand visualizations of virus classifications. This web app is designed to help you explore how organisms, including viruses, are systematically categorized within the tree of life.
+    </p>
+    <br>
+    <p>
+      <strong>How are viruses classified?</strong> <br>
+      Similar to other kingdoms of life, viruses are organized using a hierarchical classification system. Here’s the structure:
+    </p>
+    <ol>
+      <li><strong>Kingdom</strong></li>
+      <li><strong>Phylum</strong></li>
+      <li><strong>Class</strong></li>
+      <li><strong>Order</strong></li>
+      <li><strong>Family</strong></li>
+      <li><strong>Genus</strong></li>
+      <li><strong>Species</strong></li>
+    </ol>
+    <p>
+      Ready to explore the fascinating world of virus taxonomy? Dive into our interactive visualizations:
+    </p>
+    <div class="buttondiv">
+      <a class="buttons" href="/clustertree">Clustertree</a>
+      <a class="buttons" href="/forcesimulation">Taxonomy Analysis</a>
     </div>
-  </main> 
+  </div>
+</main> 
 
 <style>
   * {
