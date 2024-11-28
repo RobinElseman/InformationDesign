@@ -1,5 +1,8 @@
 // Export windowheight
 export default function getWindowHeight() {
-    const windowHeight = window.innerHeight
-    return windowHeight;
+    if (typeof window !== 'undefined') {
+        return window.innerHeight;
+    }
+    // Return a default value if `window` is not available
+    return 0;
 }
