@@ -2,7 +2,7 @@
   // Import everything needed for this component
   import * as d3 from "d3"
   import { onMount } from "svelte"
-  import { fetchAllData } from "../lib/index"
+  import { fetchAllData } from "../lib/forcesimulation"
   import Checkboxes from "../components/checkboxes.svelte"
   import WindowHeight from "../lib/windowheight"
   

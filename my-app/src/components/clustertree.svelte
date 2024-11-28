@@ -2,7 +2,7 @@
     // Import everything needed for this component
     import * as d3 from "d3"
     import { onMount } from 'svelte'
-    import { fetchData } from "../lib/new"
+    import { fetchData } from "../lib/clustertree"
     import Loading from "../components/loading.svelte"
 
     // Declare variables

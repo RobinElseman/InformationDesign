@@ -39,7 +39,7 @@ export async function fetchData() {
                     currentLevel.children.push(node);
                 }
 
-                currentLevel = node; // Dive deeper into the classification
+                currentLevel = node
             });
 
             // Add systemClassification information

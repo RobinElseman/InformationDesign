@@ -1,23 +1,23 @@
 // Fetch and export data from Naturalis API
 export async function fetchButtons() {
-    const url = `https://api.biodiversitydata.nl/v2/taxon/query?defaultClassification.kingdom=Viruses&_size=3186`;
+    const url = `https://api.biodiversitydata.nl/v2/taxon/query?defaultClassification.kingdom=Viruses&_size=3186`
 
     try {
         const response = await fetch(url, {
             method: "GET",
-        });
+        })
         
         if (!response.ok) {
-            throw new Error(`Error: ${response.status} ${response.statusText}`);
+            throw new Error(`Error: ${response.status} ${response.statusText}`)
         }
         
         const data = await response.json()
-        console.log(data);
+        console.log(data)
 
-        return data;
+        return data
 
     } catch (error) {
-        console.error("Fetch error:", error);
-        throw error;
+        console.error("Fetch error:", error)
+        throw error
     }
 }
